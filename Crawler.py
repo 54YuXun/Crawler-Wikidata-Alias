@@ -33,8 +33,8 @@ def wiki_crawler(Keyword, delay):
         myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'wikibase-aliasesview-list-item')))
         # print ("Page is ready!")
         soup = BeautifulSoup(driver.page_source, "lxml")
-        abc = soup.findAll("li", {"class": "wikibase-aliasesview-list-item"})
-        for i in abc:
+        dataSet = soup.findAll("li", {"class": "wikibase-aliasesview-list-item"})
+        for i in dataSet:
             try:
                 list.append(i.text)
             except:
